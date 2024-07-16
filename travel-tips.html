@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Adventures - 10 Essential Travel Tips</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Wanderlust Adventures</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" style="background-image: url('travel-tips-hero.jpg');">
+            <h2>10 Essential Travel Tips</h2>
+        </section>
+        <section>
+            <h2>Make the Most of Your Journey</h2>
+            <ol>
+                <li>Research your destination thoroughly</li>
+                <li>Pack light and smart</li>
+                <li>Keep important documents safe</li>
+                <li>Learn basic phrases in the local language</li>
+                <li>Be open to new experiences</li>
+                <li>Stay flexible with your plans</li>
+                <li>Respect local customs and traditions</li>
+                <li>Stay connected but don't forget to disconnect</li>
+                <li>Keep a travel journal</li>
+                <li>Purchase travel insurance</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Share Your Travel Tips</h2>
+            <form id="tip-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="tip">Your Travel Tip:</label>
+                <textarea id="tip" name="tip" rows="4" required></textarea>
+
+                <button type="submit">Share Tip</button>
+            </form>
+        </section>
+        <section id="shared-tips">
+            <h2>Traveler Tips</h2>
+            <!-- Shared tips will be dynamically added here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Wanderlust Adventures. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('tip-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const tip = document.getElementById('tip').value;
+            
+            const tipElement = document.createElement('div');
+            tipElement.classList.add('tip-card');
+            tipElement.innerHTML = `
+                <h3>${name}</h3>
+                <p>${tip}</p>
+            `;
+            
+            document.getElementById('shared-tips').appendChild(tipElement);
+            
+            // Clear form fields
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('tip').value = '';
+        });
+    </script>
+</body>
+</html>
