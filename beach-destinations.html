@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Wanderlust Adventures - Top 5 Beach Destinations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Wanderlust Adventures</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" style="background-image: url('C:\Users\LENOVO\Desktop\claude\beach - background.jpeg');">
+            <h2>Top 5 Beach Destinations</h2>
+        </section>
+        <section>
+            <h2>Relax and Unwind at These Coastal Paradises</h2>
+            <div class="beach-gallery">
+                <div class="beach-card">
+                    <img src="maldives.jpeg" alt="Maldives">
+                    <h3>1. Maldives</h3>
+                    <p>Crystal clear waters, overwater bungalows, and vibrant marine life make the Maldives a tropical paradise.</p>
+                </div>
+                <div class="beach-card">
+                    <img src="bali.jpeg" alt="Bali, Indonesia">
+                    <h3>2. Bali, Indonesia</h3>
+                    <p>Beautiful beaches, lush landscapes, and rich culture blend perfectly in this Indonesian gem.</p>
+                </div>
+                <div class="beach-card">
+                    <img src="Seychelles.jpeg" alt="Seychelles">
+                    <h3>3. Seychelles</h3>
+                    <p>Pristine beaches, granite boulders, and turquoise waters make Seychelles a picture-perfect destination.</p>
+                </div>
+                <div class="beach-card">
+                    <img src="hawaii.jpeg" alt="Hawaii, USA">
+                    <h3>4. Hawaii, USA</h3>
+                    <p>Dramatic landscapes, golden beaches, and aloha spirit create an unforgettable island experience.</p>
+                </div>
+                <div class="beach-card">
+                    <img src="thailand.jpeg" alt="Thai Islands, Thailand">
+                    <h3>5. Thai Islands, Thailand</h3>
+                    <p>From Phuket to Koh Phi Phi, Thailand's islands offer stunning beaches, limestone cliffs, and vibrant nightlife.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Share Your Beach Experience</h2>
+            <form id="beach-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="beach">Your Favorite Beach Destination:</label>
+                <textarea id="beach" name="beach" rows="4" required></textarea>
+
+                <button type="submit">Share Experience</button>
+            </form>
+        </section>
+        <section id="shared-beaches">
+            <h2>Traveler Beach Experiences</h2>
+            <!-- Shared experiences will be dynamically added here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Wanderlust Adventures. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('beach-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const beach = document.getElementById('beach').value;
+            
+            const beachElement = document.createElement('div');
+            beachElement.classList.add('beach-experience-card');
+            beachElement.innerHTML = `
+                <h3>${name}</h3>
+                <p>${beach}</p>
+            `;
+            
+            document.getElementById('shared-beaches').appendChild(beachElement);
+            
+            // Clear form fields
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('beach').value = '';
+        });
+    </script>
+</body>
+</html>
