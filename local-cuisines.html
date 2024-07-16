@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Adventures - Exploring Local Cuisines</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Wanderlust Adventures</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" style="background-image: url('local-cuisines-hero.jpg');">
+            <h2>Exploring Local Cuisines</h2>
+        </section>
+        <section>
+            <h2>Dive into Global Flavors</h2>
+            <div class="cuisine-gallery">
+                <div class="cuisine-card">
+                    <img src="sushi.jpeg" alt="Sushi from Japan">
+                    <h3>Sushi - Japan</h3>
+                    <p>Experience the delicate flavors of fresh fish and perfectly seasoned rice.</p>
+                </div>
+                <div class="cuisine-card">
+                    <img src="pizza.jpeg" alt="Pizza from Italy">
+                    <h3>Pizza - Italy</h3>
+                    <p>Savor the perfect combination of crispy crust, tangy tomato sauce, and melted cheese.</p>
+                </div>
+                <div class="cuisine-card">
+                    <img src="tacos.jpeg" alt="Tacos from Mexico">
+                    <h3>Tacos - Mexico</h3>
+                    <p>Enjoy the explosion of flavors in these handheld delights filled with various meats and toppings.</p>
+                </div>
+                <!-- Add more cuisine cards as needed -->
+            </div>
+        </section>
+        <section>
+            <h2>Share Your Culinary Experience</h2>
+            <form id="cuisine-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="cuisine">Your Favorite Local Dish:</label>
+                <textarea id="cuisine" name="cuisine" rows="4" required></textarea>
+
+                <button type="submit">Share Experience</button>
+            </form>
+        </section>
+        <section id="shared-cuisines">
+            <h2>Traveler Culinary Experiences</h2>
+            <!-- Shared experiences will be dynamically added here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Wanderlust Adventures. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('cuisine-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const cuisine = document.getElementById('cuisine').value;
+            
+            const cuisineElement = document.createElement('div');
+            cuisineElement.classList.add('cuisine-experience-card');
+            cuisineElement.innerHTML = `
+                <h3>${name}</h3>
+                <p>${cuisine}</p>
+            `;
+            
+            document.getElementById('shared-cuisines').appendChild(cuisineElement);
+            
+            // Clear form fields
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('cuisine').value = '';
+        });
+    </script>
+</body>
+</html>
